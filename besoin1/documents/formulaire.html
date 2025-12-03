@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Campus Esprit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espritBlue: '#3274bd', // Approximate blue from image
+                        espritDark: '#1D3557',
+                        lightGray: '#E5E7EB',
+                        inputBg: '#FAFAFA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+    <!-- Simple font import for better look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-espritDark">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo Placeholder -->
+            <div class="flex items-center gap-2">
+                <div class="text-2xl font-bold text-espritBlue flex items-center">
+                    <svg class="w-8 h-8 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                    </svg>
+                    CAMPUS
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-12 text-gray-600 font-medium">
+                <a href="#" class="hover:text-espritBlue">Dashboard</a>
+                <a href="#" class="hover:text-espritBlue text-espritBlue">Documents</a>
+                <a href="#" class="hover:text-espritBlue">Meetings</a>
+                <a href="#" class="hover:text-espritBlue">About</a>
+            </nav>
+
+            <!-- User Icon -->
+            <div>
+                <svg class="w-10 h-10 text-espritBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Sidebar: Type du Document -->
+            <div class="lg:col-span-4">
+                <h2 class="text-2xl font-bold mb-6">Type du Document</h2>
+                <div class="space-y-4">
+                    <!-- Buttons with 'doc-btn' class for JS targeting -->
+                    <button class="doc-btn w-full text-left py-4 px-6 rounded-md bg-gray-200 hover:bg-gray-300 font-semibold transition duration-200" onclick="selectBtn(this)">
+                        Attestation d'inscription
+                    </button>
+                    <button class="doc-btn w-full text-left py-4 px-6 rounded-md bg-gray-200 hover:bg-gray-300 font-semibold transition duration-200" onclick="selectBtn(this)">
+                        Attestation de Présence
+                    </button>
+                    <button class="doc-btn w-full text-left py-4 px-6 rounded-md bg-gray-200 hover:bg-gray-300 font-semibold transition duration-200" onclick="selectBtn(this)">
+                        Attestation de stage
+                    </button>
+                    <button class="doc-btn w-full text-left py-4 px-6 rounded-md bg-gray-200 hover:bg-gray-300 font-semibold transition duration-200" onclick="selectBtn(this)">
+                        Relevé de notes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Form: Remplissez votre formulaire -->
+            <div class="lg:col-span-8">
+                <h2 class="text-2xl font-bold mb-6">Remplissez votre formulaire de demande</h2>
+                
+                <form action="#" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- First Name -->
+                        <div>
+                            <label class="block text-sm font-bold mb-2">First name</label>
+                            <input type="text" placeholder="Jane" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:border-espritBlue bg-white">
+                        </div>
+                        <!-- ID Unique -->
+                        <div>
+                            <label class="block text-sm font-bold mb-2">IDENTIFIANT Unique</label>
+                            <input type="text" placeholder="243JSM5555" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:border-espritBlue bg-white">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Email address</label>
+                        <input type="email" placeholder="email@esprit.tn" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:border-espritBlue bg-white">
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Your message</label>
+                        <textarea rows="6" placeholder="Enter your question or message" class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:border-espritBlue bg-white"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div>
+                        <a href="./consultation.html">
+                        <button type="button" class="w-full bg-espritBlue text-white font-bold py-4 rounded-md hover:opacity-90 transition duration-300 text-lg">
+                            Submit
+                        </button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-espritBlue text-white pt-12 pb-8 mt-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start">
+                
+                <!-- Footer Logo & Info -->
+                <div class="mb-8 md:mb-0">
+                    <div class="text-4xl font-bold mb-4 flex flex-col items-center md:items-start">
+                        <!-- Simple Book Icon -->
+                        <svg class="w-12 h-12 mb-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                        </svg>
+                    </div>
+                    <p class="text-sm opacity-90 text-center md:text-left">
+                        © 2025 e-Campus<br>
+                        El Ghazala Technopark,<br>
+                        Ariana, Tunisie<br>
+                        <span class="text-xs opacity-75">+216 70 250 000 • scolarite@esprit.tn</span>
+                    </p>
+                </div>
+
+                <!-- Footer Links Columns -->
+                <div class="flex flex-wrap gap-12 md:gap-24 text-sm">
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="font-bold mb-4">Quick links</h3>
+                        <ul class="space-y-2 opacity-90">
+                            <li><a href="#" class="hover:underline">Dashboard</a></li>
+                            <li><a href="#" class="hover:underline">Documents</a></li>
+                            <li><a href="#" class="hover:underline">Meetings</a></li>
+                            <li><a href="#" class="hover:underline">About</a></li>
+                        </ul>
+                    </div>
+                    <!-- Resources -->
+                    <div>
+                        <h3 class="font-bold mb-4">Resources</h3>
+                        <ul class="space-y-2 opacity-90">
+                            <li><a href="#" class="hover:underline">Brochure</a></li>
+                            <li><a href="#" class="hover:underline">FAQs</a></li>
+                            <li><a href="#" class="hover:underline">Support</a></li>
+                            <li><a href="#" class="hover:underline">Blog</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="font-bold mb-4">Contact</h3>
+                        <ul class="space-y-2 opacity-90">
+                            <li><a href="#" class="hover:underline">LinkedIn</a></li>
+                            <li><a href="#" class="hover:underline">Twitter</a></li>
+                            <li><a href="#" class="hover:underline">Instagram</a></li>
+                            <li><a href="#" class="hover:underline">Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Selectable Buttons -->
+    <script>
+        function selectBtn(clickedBtn) {
+            // 1. Get all buttons with class 'doc-btn'
+            const allButtons = document.querySelectorAll('.doc-btn');
+            
+            // 2. Loop through them to reset styles (remove selection)
+            allButtons.forEach(btn => {
+                // Reset to default gray background and dark text
+                btn.classList.remove('bg-gray-400', 'text-white', 'shadow-md');
+                btn.classList.add('bg-gray-200', 'text-espritDark');
+            });
+
+            // 3. Apply active styles to the clicked button
+            // Remove default gray
+            clickedBtn.classList.remove('bg-gray-200', 'text-espritDark');
+            // Add darker background and white text to show selection
+            clickedBtn.classList.add('bg-gray-400', 'text-white', 'shadow-md');
+        }
+
+        // Optional: Select the first button by default when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstBtn = document.querySelector('.doc-btn');
+            if(firstBtn) selectBtn(firstBtn);
+        });
+    </script>
+</body>
+</html>
