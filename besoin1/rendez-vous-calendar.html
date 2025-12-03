@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Campus - Sélectionner une date</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 text-white rounded flex items-center justify-center font-bold text-sm">E</div>
+                <span class="text-blue-600 font-bold text-lg">E-CAMPUS</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Dashboard</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Documents</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Réunions</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">À propos</a>
+            </nav>
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center cursor-pointer text-lg">👤</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <!-- Title -->
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Sélectionner un date disponible:</h1>
+
+        <!-- Calendar & Availability Container -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Calendar Section -->
+                <div class="lg:col-span-2">
+                    <!-- Month Navigation -->
+                    <div class="flex items-center justify-between mb-6">
+                        <button class="text-gray-600 hover:text-gray-900 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <h2 class="text-lg font-semibold text-gray-900">Octobre 2025</h2>
+                        <button class="text-gray-600 hover:text-gray-900 transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Calendar Header (Days) -->
+                    <div class="grid grid-cols-7 gap-2 mb-4">
+                        <div class="text-center text-sm font-semibold text-gray-600">L</div>
+                        <div class="text-center text-sm font-semibold text-gray-600">M</div>
+                        <div class="text-center text-sm font-semibold text-gray-600">M</div>
+                        <div class="text-center text-sm font-semibold text-gray-600">J</div>
+                        <div class="text-center text-sm font-semibold text-gray-600">V</div>
+                        <div class="text-center text-sm font-semibold text-gray-600">S</div>
+                        <div class="text-center text-sm font-semibold text-gray-600">D</div>
+                    </div>
+
+                    <!-- Calendar Dates -->
+                    <div class="grid grid-cols-7 gap-2 bg-gray-50 p-4 rounded-lg">
+                        <!-- Empty cells for days before 20th -->
+                        <div></div>
+                        <!-- 20-26 -->
+                        <button class="p-3 text-center text-sm font-medium text-gray-700 hover:bg-gray-200 rounded transition">20</button>
+                        <button class="p-3 text-center text-sm font-medium text-gray-700 hover:bg-gray-200 rounded transition">21</button>
+                        <button class="p-3 text-center text-sm font-medium text-gray-700 hover:bg-gray-200 rounded transition">22</button>
+                        <!-- Current date (24) -->
+                        <button class="p-3 text-center text-sm font-medium text-white bg-gray-400 rounded-full transition hover:bg-gray-500">24</button>
+                        <!-- Selected date (24) -->
+                        <button class="p-3 text-center text-sm font-medium text-white bg-purple-600 rounded-full transition hover:bg-purple-700">24</button>
+                        <button class="p-3 text-center text-sm font-medium text-gray-700 hover:bg-gray-200 rounded transition">25</button>
+                        <button class="p-3 text-center text-sm font-medium text-gray-700 hover:bg-gray-200 rounded transition">26</button>
+                    </div>
+
+                    <!-- Date Display -->
+                    <p class="text-sm text-gray-600 mt-4">24 octobre 2025</p>
+                </div>
+
+                <!-- Availability Section -->
+                <div class="lg:col-span-1">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Disponibilité</h3>
+                    <div class="space-y-3">
+                        <!-- Unavailable slots -->
+                        <div class="p-4 bg-gray-100 rounded-lg text-center text-gray-600 text-sm font-medium">
+                            09:00
+                        </div>
+                        <div class="p-4 bg-gray-100 rounded-lg text-center text-gray-600 text-sm font-medium">
+                            Réservée
+                        </div>
+
+                        <!-- Available slot -->
+                        <div class="p-4 border-2 border-green-500 bg-green-50 rounded-lg text-center text-gray-900 font-semibold cursor-pointer hover:bg-green-100 transition">
+                            10:00
+                            <div class="text-xs text-green-600 font-normal">Disponible</div>
+                        </div>
+
+                        <!-- Unavailable slots -->
+                        <div class="p-4 bg-gray-100 rounded-lg text-center text-gray-600 text-sm font-medium">
+                            11:00
+                        </div>
+                        <div class="p-4 bg-gray-100 rounded-lg text-center text-gray-600 text-sm font-medium">
+                            Réservée
+                        </div>
+
+                        <div class="p-4 bg-gray-100 rounded-lg text-center text-gray-600 text-sm font-medium">
+                            12:00
+                        </div>
+                        <div class="p-4 bg-gray-100 rounded-lg text-center text-gray-600 text-sm font-medium">
+                            Réservée
+                        </div>
+
+                        <div class="p-4 bg-gray-100 rounded-lg text-center text-gray-600 text-sm font-medium">
+                            13:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons (optional) -->
+        <div class="mt-8 flex justify-end gap-4">
+            <button class="px-6 py-2 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-gray-400 transition">
+                Annuler
+            </button>
+            <button class="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+                Confirmer
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-12 px-4 mt-16">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-8">
+            <!-- Logo & Info -->
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-10 h-10 bg-blue-400 rounded flex items-center justify-center font-bold">E</div>
+                    <span class="font-bold text-lg">E-CAMPUS</span>
+                </div>
+                <p class="text-blue-100 text-sm">
+                    © 2024 E-Campus<br>
+                    Université Virtuelle<br>
+                    Anass Youssi
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h5 class="font-bold text-sm mb-3">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Dashboard</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Documents</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-sm mb-3">Resources</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">FAQ</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Aide</a></li>
+                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h5 class="font-bold text-sm mb-3">Contact</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Email</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Téléphone</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Support 24/7</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-blue-400 pt-8 text-center text-blue-100 text-sm">
+            Tous les droits réservés | Politique de confidentialité | Conditions d'utilisation
+        </div>
+    </footer>
+</body>
+</html>
