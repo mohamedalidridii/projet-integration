@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Campus - Choisir Le Bureau</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 text-white rounded-sm flex items-center justify-center font-bold text-sm">E</div>
+                <span class="text-blue-600 font-bold text-lg">CAMPUS</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Dashboard</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Documents</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Meetings</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">About</a>
+            </nav>
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center cursor-pointer text-lg hover:bg-blue-200 transition">👤</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center px-4 py-12">
+        <div class="max-w-5xl w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Image -->
+                <div class="flex justify-center lg:justify-start">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=600&fit=crop" alt="Université" class="rounded-3xl shadow-xl w-full max-w-sm object-cover">
+                </div>
+
+                <!-- Right Side - Form -->
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Choisir Le Bureau</h1>
+
+                    <!-- Form -->
+                    <form class="space-y-6">
+                        <!-- Bureau Label -->
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-3">Bureau</label>
+                            
+                            <!-- Dropdown -->
+                            <div class="relative">
+                                <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-gray-700 font-medium appearance-none bg-white cursor-pointer hover:border-gray-400 transition focus:border-blue-600 focus:outline-none">
+                                    <option selected>Service Financier</option>
+                                    <option>Service Académique</option>
+                                    <option>Service Administratif</option>
+                                    <option>Service Ressources Humaines</option>
+                                </select>
+                                <svg class="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-600 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex gap-4 pt-8">
+                            <button type="submit" class="flex-1 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition shadow-md">
+                                Submit
+                            </button>
+                            <button type="button" class="flex-1 bg-gray-400 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-500 transition shadow-md">
+                                Retour
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-12 px-4 mt-auto">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8 mb-8">
+            <!-- Logo & Info -->
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-12 h-12 bg-blue-400 rounded flex items-center justify-center font-bold text-xl">E</div>
+                </div>
+                <p class="text-blue-100 text-xs leading-relaxed">
+                    © 2025 e-Campus<br>
+                    El Ghazala Technopark,<br>
+                    Ariana, Tunisie<br>
+                    <br>
+                    +216 70 250 000<br>
+                    <span class="text-blue-200">contact@campus.tn</span>
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h5 class="font-bold text-sm mb-4 uppercase tracking-wider">Quick links</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Dashboard</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Documents</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Meetings</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">About</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <h5 class="font-bold text-sm mb-4 uppercase tracking-wider">Resources</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Brochure</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">FAQs</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Support</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h5 class="font-bold text-sm mb-4 uppercase tracking-wider">Contact</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">LinkedIn</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Twitter</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Instagram</a></li>
+                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
