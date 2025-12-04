@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Campus - Forum</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#3b82f6',
+                            600: '#2563eb', // Primary brand blue matching design
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            /* Custom utility for the search input focus ring to blend with the button */
+            .search-input:focus {
+                @apply outline-none ring-2 ring-brand-600 ring-inset z-10;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- <header class="bg-slate-50 border-t-4 border-brand-600 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <svg width="138" height="36" viewBox="0 0 138 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M36.358 8.76203V6.53516C36.358 5.40126 35.824 4.3283 34.9037 3.60186L21.3813 0.319665C19.4903 -0.106555 17.4452 -0.106555 15.5541 0.319665L2.12121 3.60186C1.20093 3.82873 0.577393 4.63024 0.577393 5.52594V8.84006L15.7767 12.4953C17.512 12.9127 19.3123 12.9127 21.0476 12.4953L36.358 8.76203Z" fill="#3B82F6"/>
+                        <path d="M36.358 12.6514L21.1366 16.3625C19.4014 16.7798 17.601 16.7798 15.8657 16.3625L0.577393 12.6514V24.6768C0.577393 25.8107 1.11138 26.8837 2.0322 27.61L15.5541 30.8922C16.4887 31.1211 17.4674 31.2356 18.4677 31.2356C19.468 31.2356 20.4468 31.1211 21.3813 30.8922L34.9927 27.61C35.824 27.3831 36.358 26.5816 36.358 25.6859V12.6514Z" fill="#2563EB"/>
+                        <path d="M61.7707 24.9415C61.2812 25.5982 60.6582 26.135 59.947 26.5119C59.2359 26.8888 58.4357 27.0772 57.566 27.0772C56.5427 27.0772 55.6214 26.8371 54.8428 26.3614C54.0642 25.8856 53.4524 25.2325 53.032 24.4231C52.6115 23.6137 52.4011 22.6742 52.4011 21.6254C52.4011 20.5838 52.6115 19.6515 53.032 18.8492C53.4524 18.0468 54.0642 17.4043 54.8428 16.9356C55.6214 16.4669 56.5427 16.2336 57.566 16.2336C58.4558 16.2336 59.2692 16.4283 59.9915 16.8162C60.7138 17.204 61.3146 17.776 61.7707 18.5133L59.3908 20.1312C59.1905 19.742 58.879 19.4192 58.4781 19.1706C58.0776 18.922 57.6105 18.7972 57.0987 18.7972C56.6315 18.7972 56.2199 18.916 55.8639 19.152C55.5079 19.3879 55.2409 19.717 55.0629 20.1312C54.8849 20.5453 54.7959 21.0362 54.7959 21.5881C54.7959 22.1621 54.8849 22.6679 55.0629 23.0973C55.2409 23.5267 55.5079 23.8671 55.8639 24.1116C56.2199 24.3561 56.6315 24.4819 57.0987 24.4819C57.6327 24.4819 58.1065 24.3436 58.5115 24.0681C58.9164 23.7925 59.2217 23.4365 59.3908 23.0164L61.7707 24.6222V24.9415ZM73.9959 16.476H76.4207L82.7611 26.8471L89.1015 16.476H91.5263L83.9624 28.8807V31.8511H81.5598V28.8807L73.9959 16.476ZM105.709 16.476V31.8511H103.306V19.1476L99.3682 30.477L95.4528 19.1476V31.8511H93.0499V16.476H95.9868L99.3682 25.7042L102.75 16.476H105.709ZM120.792 16.476V24.1862C120.792 25.1813 120.525 26.0142 120.013 26.6667C119.502 27.3192 118.767 27.7825 117.833 28.0561C116.898 28.3298 115.83 28.4666 114.651 28.4666H112.649V31.8511H110.246V16.476H114.651C115.83 16.476 116.898 16.6128 117.833 16.8864C118.767 17.16 119.502 17.6233 120.013 18.2758C120.525 18.9283 120.792 19.7612 120.792 20.7563V16.476ZM118.389 20.7563C118.389 20.1407 118.227 19.6338 117.9 19.2347C117.573 18.8355 117.112 18.5402 116.537 18.3443C115.962 18.1484 115.333 18.0519 114.651 18.0519H112.649V26.8906H114.651C115.333 26.8906 115.962 26.7942 116.537 26.5983C117.112 26.4024 117.573 26.1071 117.9 25.7079C118.227 25.3088 118.389 24.8019 118.389 24.1862V20.7563ZM137.475 16.476V28.8807C137.475 29.8508 137.074 30.6933 136.333 31.3847C135.591 32.0761 134.627 32.425 133.508 32.425C132.388 32.425 131.425 32.0761 130.683 31.3847C129.941 30.6933 129.541 29.8508 129.541 28.8807V16.476H131.943V28.5574C131.943 29.1419 132.143 29.6394 132.529 30.025C132.915 30.4105 133.427 30.6033 133.998 30.6033C134.569 30.6033 135.08 30.4105 135.466 30.025C135.852 29.6394 136.052 29.1419 136.052 28.5574V16.476H137.475ZM122.991 24.4602C123.466 24.2114 123.829 24.0124 124.074 23.8693C124.319 23.7263 124.571 23.63 124.816 23.5833C125.061 23.5367 125.365 23.5149 125.714 23.5149C126.166 23.5149 126.545 23.5895 126.849 23.7387C127.153 23.8879 127.38 24.1211 127.528 24.4353C127.676 24.7493 127.751 25.1474 127.751 25.6268C127.751 26.3233 127.566 26.9078 127.202 27.3835C126.838 27.8593 126.319 28.0984 125.669 28.0984C125.313 28.0984 124.972 28.0393 124.66 27.9244C124.349 27.8093 124.059 27.6477 123.792 27.4394V31.6148C124.134 31.789 124.497 31.9258 124.883 32.0253C125.269 32.1248 125.677 32.1745 126.114 32.1745C127.271 32.1745 128.25 31.8636 129.051 31.2386C129.852 30.6136 130.253 29.6653 130.253 28.3937C130.253 27.4111 130.038 26.5748 129.622 25.8911C129.207 25.2071 128.628 24.694 127.914 24.3483C127.199 24.0025 126.376 23.8253 125.476 23.8253C125.194 23.8253 124.935 23.8408 124.712 23.8693C124.49 23.8973 124.289 23.9439 124.111 24.0061C123.933 24.0683 123.777 24.146 123.644 24.2362V16.476H130.134V19.6451H126.366V22.5077C125.891 22.7564 125.454 23.0642 125.068 23.4278L122.991 24.4602Z" fill="currentColor" class="text-brand-600"/>
+                    </svg>
+                </div>
+
+                <nav class="hidden md:flex space-x-12 text-sm font-medium text-slate-600">
+                    <a href="#" class="hover:text-brand-600 transition-colors">Documents</a>
+                    <a href="#" class="hover:text-brand-600 transition-colors">Dashboard</a>
+                    <a href="#" class="text-brand-600 font-bold transition-colors">Forum</a> <a href="#" class="hover:text-brand-600 transition-colors">About</a>
+                </nav>
+
+                <div class="flex items-center">
+                    <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-600 rounded-full">
+                        <img class="h-10 w-10 rounded-full border-2 border-brand-300 bg-brand-100" 
+                             src="https://api.dicebear.com/7.x/avataaars/svg?seed=Hamdi&backgroundColor=b6e3f4" 
+                             alt="User Avatar">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header> -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 text-white rounded flex items-center justify-center font-bold">E</div>
+                <span class="text-blue-600 font-bold text-lg">E-CAMPUS</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Dashboard</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Documents</a>
+                <a href="feed.html" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Forum</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">À propos</a>
+            </nav>
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center cursor-pointer text-lg"><a
+                    href="profile.html">👤</a></div>
+        </div>
+    </header>
+
+    <div class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full lg:grid lg:grid-cols-12 lg:gap-8">
+
+        <aside class="lg:col-span-3 mb-8 lg:mb-0 space-y-8">
+
+            <nav class="space-y-2">
+                <a href="feed.html"
+                    class="flex items-center px-3 py-2 text-sm font-bold text-slate-900 rounded-md bg-white shadow-sm border border-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-4 h-4 mr-2 text-brand-600">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16 6l2.29 2.29-4.88 4.88-3.29-3.29-6 6L2 20l1.41 1.41 4.59-4.58 3.29 3.29 6.17-6.17 4.88 4.88L22 14V6h-6z" />
+                    </svg>
+                    Topics
+                </a>
+                <a href="events.html"
+                    class="flex items-center px-3 py-2 text-sm font-bold text-slate-600 rounded-md hover:bg-slate-100/80 hover:text-slate-900 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5 mr-3 text-slate-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                    </svg>
+                    Events
+                </a>
+                <a href="chat.html"
+                    class="flex items-center px-3 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-100/80 hover:text-slate-900 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="w-5 h-5 mr-3 text-slate-500">
+                        <path fill-rule="evenodd"
+                            d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813a3.75 3.75 0 002.576-2.576l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.394a.75.75 0 010 1.422l-1.183.394c-.447.15-.799.5-.948.948l-.394 1.183a.75.75 0 01-1.422 0l-.394-1.183a1.5 1.5 0 00-.948-.948l-1.183-.394a.75.75 0 010-1.422l1.183-.394c.447-.15.799-.5.948-.948l.394-1.183A.75.75 0 0116.5 15z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    campAI
+                </a>
+            </nav>
+
+            <div class="border-t border-gray-200 pt-4 lg:border-none lg:pt-0">
+                <button
+                    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')"
+                    class="flex items-center justify-between w-full px-3 text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">
+                    My Groups
+                    <svg class="h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <nav class="space-y-1">
+                    <a href="#"
+                        class="block px-3 py-2 text-sm font-medium text-slate-700 rounded-md hover:bg-slate-100/80 hover:text-brand-600 transition-colors">EspritGlobal</a>
+                    <a href="#"
+                        class="block px-3 py-2 text-sm font-medium text-slate-700 rounded-md hover:bg-slate-100/80 hover:text-brand-600 transition-colors">4TWIN7</a>
+                    <a href="#"
+                        class="block px-3 py-2 text-sm font-medium text-slate-700 rounded-md hover:bg-slate-100/80 hover:text-brand-600 transition-colors">UX</a>
+                </nav>
+            </div>
+
+            <button type="button" id="createGroupBtn"
+                class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="w-5 h-5 mr-2 -ml-1">
+                    <path
+                        d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                </svg>
+                Create Custom Group
+            </button>
+        </aside>
+
+        <main class="lg:col-span-9">
+
+            <div class="mb-6 relative rounded-md shadow-sm flex w-full z-10">
+                <input type="text" name="search" id="search"
+                    class="search-input focus:ring-brand-600 focus:border-brand-600 flex-grow block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 px-4 py-3 border"
+                    placeholder="Search for groups">
+                <button type="button"
+                    class="relative inline-flex items-center space-x-2 px-4 py-2 border border-brand-600 text-sm font-medium rounded-r-md text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-1 focus:ring-brand-600 focus:border-brand-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                        <path fill-rule="evenodd"
+                            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mb-6">
+                <div class="relative inline-block text-left">
+                    <button type="button"
+                        class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-slate-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
+                        id="menu-button" aria-expanded="true" aria-haspopup="true">
+                        Best
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+
+                <article
+                    class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 flex gap-4 sm:gap-6 transition-shadow hover:shadow-md">
+                    <div class="flex flex-col items-center space-y-1 text-slate-400">
+                        <button class="hover:text-brand-600 hover:bg-slate-100 p-1 rounded transition-colors"
+                            aria-label="Upvote">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <span class="text-sm font-bold text-green-600">42</span>
+                        <button class="hover:text-red-600 hover:bg-slate-100 p-1 rounded transition-colors"
+                            aria-label="Downvote">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5 text-red-500">
+                                <path fill-rule="evenodd"
+                                    d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex-1">
+                        <div class="flex items-center text-xs sm:text-sm mb-2 flex-wrap gap-2">
+                            <a href="#" class="font-bold text-brand-600 hover:underline">r/EspritGlobal</a>
+                            <span class="text-slate-500">• Posted by Anonymous 2h ago</span>
+                        </div>
+
+                        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Je charche tutors</h2>
+
+                        <p class="text-slate-600 text-sm sm:text-base mb-4 leading-relaxed">
+                            Chkoun y9ari info decisionnel svp 4 ème bi prix raisonnable
+                        </p>
+
+                        <div class="flex items-center gap-4 text-xs sm:text-sm font-medium text-slate-500">
+                            <a href="#" class="flex items-center hover:bg-slate-100 p-2 -m-2 rounded transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-4 h-4 mr-2">
+                                    <path fill-rule="evenodd"
+                                        d="M3.43 2.524A41.29 41.29 0 0110 2c2.236 0 4.43.18 6.57.524 1.437.231 2.43 1.49 2.43 2.902v5.148c0 1.413-.993 2.67-2.43 2.902a41.202 41.202 0 01-5.183.501.75.75 0 00-.433.163l-3.65 2.664a.75.75 0 01-1.192-.615v-2.214a.75.75 0 00-.284-.589C4.57 12.57 3.21 11.318 2.427 9.654A10.003 10.003 0 012 7.205v-1.78c0-1.412.993-2.67 2.43-2.902z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                15 Comments
+                            </a>
+                            <button class="flex items-center hover:bg-slate-100 p-2 -m-2 rounded transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-4 h-4 mr-2">
+                                    <path
+                                        d="M13 4.5a2.5 2.5 0 11.702 1.737L6.97 9.604a2.518 2.518 0 010 .792l6.733 3.367a2.5 2.5 0 11-.671 1.341l-6.733-3.367a2.5 2.5 0 110-3.538l6.733-3.367A2.5 2.5 0 0113 4.5z" />
+                                </svg>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 flex gap-4 sm:gap-6 transition-shadow hover:shadow-md">
+                    <div class="flex flex-col items-center space-y-1 text-slate-400">
+                        <button class="hover:text-brand-600 hover:bg-slate-100 p-1 rounded transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5 text-green-600">
+                                <path fill-rule="evenodd"
+                                    d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <span class="text-sm font-bold text-slate-700">121</span>
+                        <button class="hover:text-red-600 hover:bg-slate-100 p-1 rounded transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+                            <div class="flex items-center text-xs sm:text-sm gap-2">
+                                <a href="#" class="font-bold text-brand-600 hover:underline">r/EspritSpotted</a>
+                                <span class="text-slate-500">• Posted by Anonymous 5h ago</span>
+                            </div>
+                            <button
+                                class="flex-shrink-0 inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500">
+                                + Join
+                            </button>
+                        </div>
+
+                        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Esprit ceremony</h2>
+                        <p class="text-slate-600 text-sm sm:text-base mb-4 leading-relaxed">
+                            Esprit kol aam netcha7tou feha bch taamel cérémonie de remise des diplomes ena tkharajt men
+                            houni w houma fixewha 2025-2026
+                        </p>
+                        <div class="flex items-center gap-4 text-xs sm:text-sm font-medium text-slate-500">
+                            <a href="#" class="flex items-center hover:bg-slate-100 p-2 -m-2 rounded transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-4 h-4 mr-2">
+                                    <path fill-rule="evenodd"
+                                        d="M3.43 2.524A41.29 41.29 0 0110 2c2.236 0 4.43.18 6.57.524 1.437.231 2.43 1.49 2.43 2.902v5.148c0 1.413-.993 2.67-2.43 2.902a41.202 41.202 0 01-5.183.501.75.75 0 00-.433.163l-3.65 2.664a.75.75 0 01-1.192-.615v-2.214a.75.75 0 00-.284-.589C4.57 12.57 3.21 11.318 2.427 9.654A10.003 10.003 0 012 7.205v-1.78c0-1.412.993-2.67 2.43-2.902z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                45 Comments
+                            </a>
+                            <button class="flex items-center hover:bg-slate-100 p-2 -m-2 rounded transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-4 h-4 mr-2">
+                                    <path
+                                        d="M13 4.5a2.5 2.5 0 11.702 1.737L6.97 9.604a2.518 2.518 0 010 .792l6.733 3.367a2.5 2.5 0 11-.671 1.341l-6.733-3.367a2.5 2.5 0 110-3.538l6.733-3.367A2.5 2.5 0 0113 4.5z" />
+                                </svg>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 flex gap-4 sm:gap-6 transition-shadow hover:shadow-md">
+                    <div class="flex flex-col items-center space-y-1 text-slate-400">
+                        <button class="hover:text-brand-600 hover:bg-slate-100 p-1 rounded transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5 text-green-600">
+                                <path fill-rule="evenodd"
+                                    d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <span class="text-sm font-bold text-slate-700">7</span>
+                        <button class="hover:text-red-600 hover:bg-slate-100 p-1 rounded transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5">
+                                <path fill-rule="evenodd"
+                                    d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex-1">
+                        <div class="flex items-center text-xs sm:text-sm mb-2 flex-wrap gap-2">
+                            <a href="#" class="font-bold text-brand-600 hover:underline">r/mobilite- internationale</a>
+                            <span class="text-slate-500">• Posted by 1 day ago</span>
+                        </div>
+                        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Opportunité d'initiation à la
+                            langue chinoise & Cours IT</h2>
+                        <p class="text-slate-600 text-sm sm:text-base mb-4 leading-relaxed line-clamp-3">
+                            J'espère que vous allez bien. Nous recevons à partir de ce lundi 24 novembre 2025, 2
+                            enseignant chinois (venants d'un partenaire du Groupe Esprit) qui ...
+                        </p>
+                        <div class="flex items-center gap-4 text-xs sm:text-sm font-medium text-slate-500">
+                            <a href="#" class="flex items-center hover:bg-slate-100 p-2 -m-2 rounded transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-4 h-4 mr-2">
+                                    <path fill-rule="evenodd"
+                                        d="M3.43 2.524A41.29 41.29 0 0110 2c2.236 0 4.43.18 6.57.524 1.437.231 2.43 1.49 2.43 2.902v5.148c0 1.413-.993 2.67-2.43 2.902a41.202 41.202 0 01-5.183.501.75.75 0 00-.433.163l-3.65 2.664a.75.75 0 01-1.192-.615v-2.214a.75.75 0 00-.284-.589C4.57 12.57 3.21 11.318 2.427 9.654A10.003 10.003 0 012 7.205v-1.78c0-1.412.993-2.67 2.43-2.902z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                3 Comments
+                            </a>
+                            <button class="flex items-center hover:bg-slate-100 p-2 -m-2 rounded transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                    class="w-4 h-4 mr-2">
+                                    <path
+                                        d="M13 4.5a2.5 2.5 0 11.702 1.737L6.97 9.604a2.518 2.518 0 010 .792l6.733 3.367a2.5 2.5 0 11-.671 1.341l-6.733-3.367a2.5 2.5 0 110-3.538l6.733-3.367A2.5 2.5 0 0113 4.5z" />
+                                </svg>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-brand-600 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-4 font-bold text-xl">
+                        <svg class="w-8 h-8" fill="white" viewBox="0 0 20 20">
+                            <path
+                                d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                        </svg>
+                    </div>
+                    <p class="text-xs text-blue-100 leading-relaxed">
+                        © 2025 e-Campus<br>
+                        El Ghazala Technopark,<br>
+                        Ariana, Tunisia<br>
+                        <span class="opacity-70">+216 70 250 000 • scolarite@esprit.tn</span>
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm mb-4">Quick links</h4>
+                    <ul class="space-y-3 text-xs text-blue-100">
+                        <li><a href="#" class="hover:text-white transition-colors">Dashboard</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Documents</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Meetings</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm mb-4">Resources</h4>
+                    <ul class="space-y-3 text-xs text-blue-100">
+                        <li><a href="#" class="hover:text-white transition-colors">Brochure</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm mb-4">Contact</h4>
+                    <ul class="space-y-3 text-xs text-blue-100">
+                        <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Create Custom Group -->
+    <div id="createGroupModal" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
+        role="dialog" aria-modal="true">
+        <!-- Background overlay -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" id="modalBackdrop"></div>
+
+        <!-- Modal container -->
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div
+                class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <!-- Modal header -->
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold leading-6 text-slate-900" id="modal-title">
+                            Create Custom Group
+                        </h3>
+                        <button type="button" id="closeModalBtn"
+                            class="rounded-md bg-white text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
+                            <span class="sr-only">Close</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Modal form -->
+                    <form id="createGroupForm" class="space-y-4">
+                        <div>
+                            <label for="groupName" class="block text-sm font-medium text-slate-700 mb-1">
+                                Group Name
+                            </label>
+                            <input type="text" name="groupName" id="groupName" required
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 sm:text-sm px-3 py-2 border"
+                                placeholder="Enter group name">
+                        </div>
+
+                        <div>
+                            <label for="groupDescription" class="block text-sm font-medium text-slate-700 mb-1">
+                                Description
+                            </label>
+                            <textarea name="groupDescription" id="groupDescription" rows="4" required
+                                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 sm:text-sm px-3 py-2 border"
+                                placeholder="Enter group description"></textarea>
+                        </div>
+
+                        <!-- Privacy Settings -->
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">
+                                Privacy Settings
+                            </label>
+                            <div class="space-y-2">
+                                <label
+                                    class="flex items-center p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-colors">
+                                    <input type="radio" name="privacy" value="public" id="publicRadio" checked
+                                        class="h-4 w-4 text-brand-600 focus:ring-brand-500 border-gray-300"
+                                        onchange="document.getElementById('inviteSection').classList.add('hidden')">
+                                    <div class="ml-3">
+                                        <span class="block text-sm font-medium text-slate-900">Public</span>
+                                        <span class="block text-xs text-slate-500">Anyone can join this group</span>
+                                    </div>
+                                </label>
+                                <label
+                                    class="flex items-center p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-colors">
+                                    <input type="radio" name="privacy" value="private" id="privateRadio"
+                                        class="h-4 w-4 text-brand-600 focus:ring-brand-500 border-gray-300"
+                                        onchange="document.getElementById('inviteSection').classList.remove('hidden')">
+                                    <div class="ml-3">
+                                        <span class="block text-sm font-medium text-slate-900">Private</span>
+                                        <span class="block text-xs text-slate-500">Only invited members can join</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Invite Section (shown only for private groups) -->
+                        <div id="inviteSection" class="hidden space-y-3 pt-2 border-t border-gray-200">
+                            <label class="block text-sm font-medium text-slate-700">
+                                Invite Members
+                            </label>
+
+                            <!-- Invite Link -->
+                            <div class="space-y-2">
+                                <label class="text-xs font-medium text-slate-600">Invitation Link</label>
+                                <div class="flex gap-2">
+                                    <input type="text" id="inviteLink" readonly
+                                        value="https://app.example.com/invite/abc123xyz"
+                                        class="block w-full rounded-md border-gray-300 bg-gray-50 shadow-sm sm:text-sm px-3 py-2 border text-slate-600">
+                                    <button type="button" onclick="copyInviteLink()"
+                                        class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-slate-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Email Invite -->
+                            <div class="space-y-2">
+                                <label for="inviteEmails" class="text-xs font-medium text-slate-600">Invite by
+                                    Email</label>
+                                <input type="email" id="inviteEmails" multiple
+                                    class="block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 sm:text-sm px-3 py-2 border"
+                                    placeholder="email@example.com (separate multiple with commas)">
+                                <p class="text-xs text-slate-500">Enter email addresses separated by commas</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button type="submit" form="createGroupForm" id="submitGroupBtn"
+                        class="inline-flex w-full justify-center rounded-md bg-brand-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 sm:ml-3 sm:w-auto focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition-colors">
+                        Create Group
+                    </button>
+                    <button type="button" id="cancelModalBtn"
+                        class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Get modal elements
+        const modal = document.getElementById('createGroupModal');
+        const openBtn = document.getElementById('createGroupBtn');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const cancelBtn = document.getElementById('cancelModalBtn');
+        const backdrop = document.getElementById('modalBackdrop');
+        const form = document.getElementById('createGroupForm');
+
+        // Open modal function
+        function openModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Close modal function
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+            form.reset(); // Reset form when closing
+            // Hide invite section when closing
+            document.getElementById('inviteSection').classList.add('hidden');
+            // Reset to public radio
+            document.getElementById('publicRadio').checked = true;
+        }
+
+        function copyInviteLink() {
+            const inviteLink = document.getElementById('inviteLink');
+            inviteLink.select();
+            document.execCommand('copy');
+
+            // Optional: Show a toast notification
+            alert('Invite link copied to clipboard!');
+        }
+
+        // Event listeners
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking on backdrop
+        backdrop.addEventListener('click', function (e) {
+            if (e.target === backdrop) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const groupName = document.getElementById('groupName').value;
+            const groupDescription = document.getElementById('groupDescription').value;
+            const privacy = document.querySelector('input[name="privacy"]:checked').value;
+
+            // Get the groups navigation container
+            const groupsNav = document.querySelector('aside nav.space-y-1');
+
+            // Create new group link element
+            const newGroupLink = document.createElement('a');
+            newGroupLink.href = '#';
+            newGroupLink.className = 'block px-3 py-2 text-sm font-medium text-slate-700 rounded-md hover:bg-slate-100/80 hover:text-brand-600 transition-colors';
+            newGroupLink.textContent = groupName;
+
+            // Add privacy indicator (optional)
+            if (privacy === 'private') {
+                const lockIcon = document.createElement('span');
+                lockIcon.innerHTML = ' 🔒';
+                lockIcon.className = 'text-xs';
+                newGroupLink.appendChild(lockIcon);
+            }
+
+            // Add the new group to the navigation
+            groupsNav.appendChild(newGroupLink);
+
+            // Show success message
+            alert(`Group "${groupName}" created successfully!`);
+
+            // Close modal after submission
+            closeModal();
+        });
+    </script>
+
+</body>
+
+</html>

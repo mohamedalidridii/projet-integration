@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Campus - Events</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 text-white rounded flex items-center justify-center font-bold">E</div>
+                <span class="text-blue-600 font-bold text-lg">E-CAMPUS</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Dashboard</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Documents</a>
+                <a href="feed.html" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Forum</a>
+                <a href="events.html" class="text-blue-600 text-sm font-medium transition">Events</a>
+                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">À propos</a>
+            </nav>
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center cursor-pointer text-lg">
+                <a href="profile.html">👤</a>
+            </div>
+        </div>
+    </header>
+    <div class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full lg:grid lg:grid-cols-12 lg:gap-8">
+
+        <aside class="lg:col-span-3 mb-8 lg:mb-0 space-y-8">
+            <nav class="space-y-2">
+                <a href="feed.html"
+                    class="flex items-center px-3 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-100/80 hover:text-slate-900 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-4 h-4 mr-2 text-slate-500">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16 6l2.29 2.29-4.88 4.88-3.29-3.29-6 6L2 20l1.41 1.41 4.59-4.58 3.29 3.29 6.17-6.17 4.88 4.88L22 14V6h-6z" />
+                    </svg>
+                    Topics
+                </a>
+                <a href="events.html"
+                    class="flex items-center px-3 py-2 text-sm font-bold text-slate-900 rounded-md bg-white shadow-sm border border-slate-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-5 h-5 mr-3 text-brand-600">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                    </svg>
+                    Events
+                </a>
+                <a href="chat.html"
+                    class="flex items-center px-3 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-100/80 hover:text-slate-900 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                        class="w-5 h-5 mr-3 text-slate-500">
+                        <path fill-rule="evenodd"
+                            d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813a3.75 3.75 0 002.576-2.576l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.394a.75.75 0 010 1.422l-1.183.394c-.447.15-.799.5-.948.948l-.394 1.183a.75.75 0 01-1.422 0l-.394-1.183a1.5 1.5 0 00-.948-.948l-1.183-.394a.75.75 0 010-1.422l1.183-.394c.447-.15.799-.5.948-.948l.394-1.183A.75.75 0 0116.5 15z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    campAI
+                </a>
+            </nav>
+
+            <div class="border-t border-gray-200 pt-4 lg:border-none lg:pt-0">
+                <button
+                    onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')"
+                    class="flex items-center justify-between w-full px-3 text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">
+                    My Groups
+                    <svg class="h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <nav class="space-y-1">
+                    <a href="#"
+                        class="block px-3 py-2 text-sm font-medium text-slate-700 rounded-md hover:bg-slate-100/80 hover:text-brand-600 transition-colors">EspritGlobal</a>
+                    <a href="#"
+                        class="block px-3 py-2 text-sm font-medium text-slate-700 rounded-md hover:bg-slate-100/80 hover:text-brand-600 transition-colors">4TWIN7</a>
+                    <a href="#"
+                        class="block px-3 py-2 text-sm font-medium text-slate-700 rounded-md hover:bg-slate-100/80 hover:text-brand-600 transition-colors">UX</a>
+                </nav>
+            </div>
+
+            <button type="button" id="createGroupBtn"
+                class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="w-5 h-5 mr-2 -ml-1">
+                    <path
+                        d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                </svg>
+                Create Custom Group
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="lg:col-span-9">
+
+            <!-- Page Header -->
+            <div class="mb-8">
+                <h1 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Campus Events</h1>
+                <p class="text-slate-600">Discover and join exciting events happening on campus</p>
+            </div>
+
+            <!-- Events Grid -->
+            <!-- Responsive grid: 1 column on mobile, 2 on tablet, 3-4 on desktop -->
+            <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+                <!-- Event Card 1 -->
+                <div class="event-card bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md"
+                    data-event-id="1">
+                    <!-- Event Image - REPLACE THIS IMAGE -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <img src="images/Tech Innovation Summit.jpg" class="text-white text-sm font-medium">
+                        <!-- TODO: Replace with actual event image -->
+                    </div>
+
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Tech Innovation Summit</h3>
+                        <p class="text-sm text-slate-600 line-clamp-2">Join us for an exciting day of tech talks,
+                            workshops, and networking opportunities with industry leaders.</p>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="event-card bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md"
+                    data-event-id="2">
+                    <!-- Event Image - REPLACE THIS IMAGE -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <img src="images/Career Fair 2025.jpg" class="text-white text-sm font-medium">
+                        <!-- TODO: Replace with actual event image -->
+                    </div>
+
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Career Fair 2025</h3>
+                        <p class="text-sm text-slate-600 line-clamp-2">Connect with top employers and explore career
+                            opportunities in various industries.</p>
+                    </div>
+                </div>
+
+                <!-- Event Card 3 -->
+                <div class="event-card bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md"
+                    data-event-id="3">
+                    <!-- Event Image - REPLACE THIS IMAGE -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <img src="images/Hackathon Challenge.jpg" class="text-white text-sm font-medium">
+                        <!-- TODO: Replace with actual event image -->
+                    </div>
+
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Hackathon Challenge</h3>
+                        <p class="text-sm text-slate-600 line-clamp-2">48-hour coding competition where teams build
+                            innovative solutions to real-world problems.</p>
+                    </div>
+                </div>
+
+                <!-- Event Card 4 -->
+                <div class="event-card bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md"
+                    data-event-id="4">
+                    <!-- Event Image - REPLACE THIS IMAGE -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                        <img src="images/Cultural Festival.jpg" class="text-white text-sm font-medium">
+                        <!-- TODO: Replace with actual event image -->
+                    </div>
+
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Cultural Festival</h3>
+                        <p class="text-sm text-slate-600 line-clamp-2">Celebrate diversity with music, food, and
+                            performances from different cultures around the world.</p>
+                    </div>
+                </div>
+
+                <!-- Event Card 5 -->
+                <div class="event-card bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md"
+                    data-event-id="5">
+                    <!-- Event Image - REPLACE THIS IMAGE -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center">
+                        <img src="images/AI & Machine Learning.jpg" class="text-white text-sm font-medium">
+                        <!-- TODO: Replace with actual event image -->
+                    </div>
+
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Workshop: AI & Machine Learning</h3>
+                        <p class="text-sm text-slate-600 line-clamp-2">Hands-on workshop covering the fundamentals of AI
+                            and machine learning with practical examples.</p>
+                    </div>
+                </div>
+
+                <!-- Event Card 6 -->
+                <div class="event-card bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-md"
+                    data-event-id="6">
+                    <!-- Event Image - REPLACE THIS IMAGE -->
+                    <div
+                        class="w-full h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                        <img src="images/Sports Tournament.jpg" eventData="Sports Tournament"
+                            class="text-white text-sm font-medium">
+                        <!-- TODO: Replace with actual event image -->
+                    </div>
+
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-2">Sports Tournament</h3>
+                        <p class="text-sm text-slate-600 line-clamp-2">Annual inter-department sports competition
+                            featuring football, basketball, and volleyball.</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-brand-600 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-4 font-bold text-xl">
+                        <svg class="w-8 h-8" fill="white" viewBox="0 0 20 20">
+                            <path
+                                d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                        </svg>
+                    </div>
+                    <p class="text-xs text-blue-100 leading-relaxed">
+                        © 2025 e-Campus<br>
+                        El Ghazala Technopark,<br>
+                        Ariana, Tunisia<br>
+                        <span class="opacity-70">+216 70 250 000 • scolarite@esprit.tn</span>
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm mb-4">Quick links</h4>
+                    <ul class="space-y-3 text-xs text-blue-100">
+                        <li><a href="#" class="hover:text-white transition-colors">Dashboard</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Documents</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Meetings</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm mb-4">Resources</h4>
+                    <ul class="space-y-3 text-xs text-blue-100">
+                        <li><a href="#" class="hover:text-white transition-colors">Brochure</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm mb-4">Contact</h4>
+                    <ul class="space-y-3 text-xs text-blue-100">
+                        <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Expanded Event Modal/Overlay -->
+    <div id="eventModal"
+        class="hidden fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-50 transition-opacity duration-300">
+        <div class="flex min-h-full items-center justify-center p-4">
+            <div id="expandedCard"
+                class="bg-white rounded-lg shadow-2xl max-w-2xl w-full transform transition-all duration-300 scale-95 opacity-0">
+
+                <!-- Close Button -->
+                <button id="closeModalBtn"
+                    class="absolute top-4 right-4 z-10 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center hover:bg-gray-100 transition-colors">
+                    <svg class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <!-- Expanded Content (dynamically populated) -->
+                <div id="expandedContent">
+                    <!-- Content will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Expand/Collapse Functionality -->
+    <script>
+    // Event data - in a real app, this would come from an API
+    const eventsData = {
+        // ... (your eventsData object remains the same)
+        1: {
+            title: "Tech Innovation Summit",
+            description: "Join us for an exciting day of tech talks, workshops, and networking opportunities with industry leaders. This summit brings together students, professionals, and innovators to explore the latest trends in technology.",
+            fullDescription: "The Tech Innovation Summit is a full-day event featuring keynote speeches from industry leaders, hands-on workshops, and networking sessions. Topics include artificial intelligence, cloud computing, cybersecurity, and emerging technologies. Perfect for students looking to expand their knowledge and connect with professionals in the tech industry.",
+            date: "March 15, 2025",
+            time: "9:00 AM - 5:00 PM",
+            location: "Main Auditorium, Building A",
+            imageColor: "from-blue-400 to-blue-600"
+        },
+        2: {
+            title: "Career Fair 2025",
+            description: "Connect with top employers and explore career opportunities in various industries.",
+            fullDescription: "The annual Career Fair brings together over 50 companies from various sectors including technology, finance, consulting, and engineering. Meet recruiters, learn about job opportunities, and get your resume reviewed. Open to all students and recent graduates.",
+            date: "April 10, 2025",
+            time: "10:00 AM - 4:00 PM",
+            location: "Sports Complex",
+            imageColor: "from-purple-400 to-purple-600"
+        },
+        3: {
+            title: "Hackathon Challenge",
+            description: "48-hour coding competition where teams build innovative solutions to real-world problems.",
+            fullDescription: "Join the ultimate coding challenge! Work in teams of 2-4 to build innovative solutions over 48 hours. Prizes include cash awards, internships, and tech gadgets. Food and drinks provided. All skill levels welcome!",
+            date: "May 20-22, 2025",
+            time: "Friday 6:00 PM - Sunday 6:00 PM",
+            location: "Computer Lab, Building B",
+            imageColor: "from-green-400 to-green-600"
+        },
+        4: {
+            title: "Cultural Festival",
+            description: "Celebrate diversity with music, food, and performances from different cultures around the world.",
+            fullDescription: "Experience the rich diversity of our campus community! Enjoy traditional music, dance performances, authentic cuisine from around the world, and cultural exhibitions. A day of celebration, learning, and fun for everyone.",
+            date: "June 5, 2025",
+            time: "12:00 PM - 8:00 PM",
+            location: "Campus Grounds",
+            imageColor: "from-orange-400 to-orange-600"
+        },
+        5: {
+            title: "Workshop: AI & Machine Learning",
+            description: "Hands-on workshop covering the fundamentals of AI and machine learning with practical examples.",
+            fullDescription: "Learn the fundamentals of Artificial Intelligence and Machine Learning in this intensive workshop. Topics include neural networks, deep learning, natural language processing, and practical applications. No prior experience required. Bring your laptop!",
+            date: "February 28, 2025",
+            time: "2:00 PM - 6:00 PM",
+            location: "Lab 301, Building C",
+            imageColor: "from-pink-400 to-pink-600"
+        },
+        6: {
+            title: "Sports Tournament",
+            description: "Annual inter-department sports competition featuring football, basketball, and volleyball.",
+            fullDescription: "The biggest sports event of the year! Compete in football, basketball, and volleyball tournaments. Cheer for your department and enjoy food, music, and prizes. Registration required for participants.",
+            date: "April 25-27, 2025",
+            time: "9:00 AM - 6:00 PM (Daily)",
+            location: "Sports Complex & Outdoor Courts",
+            imageColor: "from-indigo-400 to-indigo-600"
+        }
+    };
+
+    // Get DOM elements
+    const eventCards = document.querySelectorAll('.event-card');
+    const eventModal = document.getElementById('eventModal');
+    const expandedCard = document.getElementById('expandedCard');
+    const expandedContent = document.getElementById('expandedContent');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Function to handle the join button click
+    function handleJoinEvent(e) {
+        const button = e.currentTarget;
+
+        // 1. Change appearance (blue -> green) and disable hover effect
+        button.classList.remove('bg-brand-600', 'hover:bg-brand-700');
+        button.classList.add('bg-green-500', 'hover:bg-green-600', 'cursor-not-allowed');
+
+        // 2. Change text
+        button.innerHTML = 'Joined! 🎉';
+        
+        // 3. Disable the button
+        button.disabled = true;
+
+        console.log('Event Joined!');
+    }
+
+    // Function to expand event card
+    function expandEvent(eventId) {
+        const eventData = eventsData[eventId];
+        if (!eventData) return;
+
+        // Build expanded content HTML
+        const expandedHTML = `
+            <div class="w-full h-64 bg-gradient-to-br ${eventData.imageColor} flex items-center justify-center relative"> 
+                <img src="images/${eventData.title}.jpg" class="w-full h-full object-cover absolute inset-0">
+            </div>
+            
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-slate-900 mb-4">${eventData.title}</h2>
+                
+                <div class="space-y-4 mb-6">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <div>
+                            <p class="text-sm font-medium text-slate-700">Date & Time</p>
+                            <p class="text-sm text-slate-600">${eventData.date}</p>
+                            <p class="text-sm text-slate-600">${eventData.time}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <div>
+                            <p class="text-sm font-medium text-slate-700">Location</p>
+                            <p class="text-sm text-slate-600">${eventData.location}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">About This Event</h3>
+                    <p class="text-slate-600 leading-relaxed">${eventData.fullDescription}</p>
+                </div>
+                
+                <div class="flex gap-3">
+                    <button id="joinEventBtn" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
+                        Join Event
+                    </button>
+                    <button class="px-4 py-3 border border-gray-300 text-slate-700 font-medium rounded-lg hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
+                        Share
+                    </button>
+                </div>
+            </div>
+        `;
+
+        // Insert content
+        expandedContent.innerHTML = expandedHTML;
+
+        // Attach click handler to the Join Button
+        document.getElementById('joinEventBtn').addEventListener('click', handleJoinEvent);
+
+        // Show modal with animation
+        eventModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+        // Trigger animation
+        setTimeout(() => {
+            expandedCard.classList.remove('scale-95', 'opacity-0');
+            expandedCard.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+
+    // Function to collapse event card
+    function collapseEvent() {
+        // Animate out
+        expandedCard.classList.remove('scale-100', 'opacity-100');
+        expandedCard.classList.add('scale-95', 'opacity-0');
+
+        // Hide modal after animation
+        setTimeout(() => {
+            eventModal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }, 300);
+    }
+
+    // Add click event listeners to all event cards
+    eventCards.forEach(card => {
+        card.addEventListener('click', function () {
+            const eventId = parseInt(this.getAttribute('data-event-id'));
+            expandEvent(eventId);
+        });
+    });
+
+    // Close modal when clicking close button
+    closeModalBtn.addEventListener('click', collapseEvent);
+
+    // Close modal when clicking on backdrop (outside the card)
+    eventModal.addEventListener('click', function (e) {
+        if (e.target === eventModal) {
+            collapseEvent();
+        }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !eventModal.classList.contains('hidden')) {
+            collapseEvent();
+        }
+    });
+</script>
+
+</body>
+
+</html>
