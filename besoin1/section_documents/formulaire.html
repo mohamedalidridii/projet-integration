@@ -32,33 +32,41 @@
 
     <!-- Header -->
     <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo Placeholder -->
-            <div class="flex items-center gap-2">
-                <div class="text-2xl font-bold text-espritBlue flex items-center">
-                    <svg class="w-8 h-8 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
-                    </svg>
-                    CAMPUS
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="./../../index.html" class="flex items-center group">
+                    <img src="./../../assets/images/logoblue2.png" alt="Campus Logo" class="h-12 w-auto group-hover:hidden">
+                    <img src="./../../assets/images/logopblck.png" alt="Campus Logo Hover" class="h-12 w-auto hidden group-hover:block">
+                </a>
+                    <!-- Navigation -->
+                    <nav class="hidden md:flex items-center gap-2">
+                    <a href="./../index.html" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">Dashboard</a>
+                    <a href="./besoin1/Home.html" class="px-6 py-2 bg-[#2F75C0] text-white rounded-md hover:bg-[#2663A6] transition">Documents</a>
+                    <a href="#" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">Meetings</a>
+                    <a href="./../about.html" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">About</a>
+                    </nav>
+
+                <!-- User Icon -->
+                <div class="hidden md:block">
+                    
+                        <a href="#" class="flex items-center group">
+                            <img src="./../../assets/images/userbl.png" alt="Campus Logo" class="h-12 w-auto group-hover:hidden">
+                            <img src="./../../assets/images/userb.png" alt="Campus Logo Hover" class="h-12 w-auto hidden group-hover:block">
+                        </a>
+                    
                 </div>
-            </div>
 
-            <!-- Navigation -->
-            <nav class="hidden md:flex space-x-12 text-gray-600 font-medium">
-                <a href="#" class="hover:text-espritBlue">Dashboard</a>
-                <a href="#" class="hover:text-espritBlue text-espritBlue">Documents</a>
-                <a href="#" class="hover:text-espritBlue">Meetings</a>
-                <a href="#" class="hover:text-espritBlue">About</a>
-            </nav>
-
-            <!-- User Icon -->
-            <div>
-                <svg class="w-10 h-10 text-espritBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </header>
+
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-16">
@@ -127,64 +135,58 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-espritBlue text-white pt-12 pb-8 mt-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start">
-                
-                <!-- Footer Logo & Info -->
-                <div class="mb-8 md:mb-0">
-                    <div class="text-4xl font-bold mb-4 flex flex-col items-center md:items-start">
-                        <!-- Simple Book Icon -->
-                        <svg class="w-12 h-12 mb-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
-                        </svg>
+  <!-- FOOTER SECTION - REPLACE THIS -->
+    <footer class="bg-[#2F75C0] text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Info Section -->
+                <div class="space-y-4">
+                    <div class="w-16 h-16  rounded-lg flex items-center justify-center">
+                        <img src="./../../assets/images/whitbg.png" alt="Campus Logo" class="h-12 w-auto">
                     </div>
-                    <p class="text-sm opacity-90 text-center md:text-left">
-                        © 2025 e-Campus<br>
-                        El Ghazala Technopark,<br>
-                        Ariana, Tunisie<br>
-                        <span class="text-xs opacity-75">+216 70 250 000 • scolarite@esprit.tn</span>
-                    </p>
+                    <div class="text-sm opacity-90">
+                        <p>© 2025 e-Campus</p>
+                        <p>El Ghazala Technopark,</p>
+                        <p>Ariana, Tunisia</p>
+                        <p class="mt-2">+216 70 250 000 • <a href="mailto:scolarite@esprit.tn" class="hover:underline">scolarite@esprit.tn</a></p>
+                    </div>
                 </div>
 
-                <!-- Footer Links Columns -->
-                <div class="flex flex-wrap gap-12 md:gap-24 text-sm">
-                    <!-- Quick Links -->
-                    <div>
-                        <h3 class="font-bold mb-4">Quick links</h3>
-                        <ul class="space-y-2 opacity-90">
-                            <li><a href="#" class="hover:underline">Dashboard</a></li>
-                            <li><a href="#" class="hover:underline">Documents</a></li>
-                            <li><a href="#" class="hover:underline">Meetings</a></li>
-                            <li><a href="#" class="hover:underline">About</a></li>
-                        </ul>
-                    </div>
-                    <!-- Resources -->
-                    <div>
-                        <h3 class="font-bold mb-4">Resources</h3>
-                        <ul class="space-y-2 opacity-90">
-                            <li><a href="#" class="hover:underline">Brochure</a></li>
-                            <li><a href="#" class="hover:underline">FAQs</a></li>
-                            <li><a href="#" class="hover:underline">Support</a></li>
-                            <li><a href="#" class="hover:underline">Blog</a></li>
-                        </ul>
-                    </div>
-                    <!-- Contact -->
-                    <div>
-                        <h3 class="font-bold mb-4">Contact</h3>
-                        <ul class="space-y-2 opacity-90">
-                            <li><a href="#" class="hover:underline">LinkedIn</a></li>
-                            <li><a href="#" class="hover:underline">Twitter</a></li>
-                            <li><a href="#" class="hover:underline">Instagram</a></li>
-                            <li><a href="#" class="hover:underline">Facebook</a></li>
-                        </ul>
-                    </div>
+                <!-- Quick Links Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick links</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">Dashboard</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Documents</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Meetings</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">About</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">Brochure</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">FAQs</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Support</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">LinkedIn</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Twitter</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Instagram</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Facebook</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- Script for Selectable Buttons -->
     <script>
         function selectBtn(clickedBtn) {

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail du Service de Scolarité</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-custom-blue { background-color: #2F75C0; }
+        .hover\:bg-custom-blue:hover { background-color: #2F75C0; }
+        .bg-custom-blue-dark { background-color: #265d9d; }
+        .hover\:bg-custom-blue-dark:hover { background-color: #265d9d; }
+        .text-custom-blue { color: #2F75C0; }
+        .hover\:text-custom-blue:hover { color: #2F75C0; }
+        .border-custom-blue { border-color: #2F75C0; }
+        .hover\:border-custom-blue:hover { border-color: #2F75C0; }
+    </style>
+</head>
+<body class="bg-gray-50">
+     <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="flex items-center group">
+                    <img src="./assets/images/logoblue2.png" alt="Campus Logo" class="h-12 w-auto group-hover:hidden">
+                    <img src="./assets/images/logopblck.png" alt="Campus Logo Hover" class="h-12 w-auto hidden group-hover:block">
+                </a>
+                    <!-- Navigation -->
+                    <nav class="hidden md:flex items-center gap-2">
+                    <a href="./index.html" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">Dashboard</a>
+                    <a href="./besoin1/Home.html" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">Documents</a>
+                    <a href="#" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">Meetings</a>
+                    <a href="./about.html" class="px-6 py-2 bg-[#2F75C0] text-white rounded-md hover:bg-[#2663A6] transition">About</a>
+                    </nav>
+
+                <!-- User Icon -->
+                <div class="hidden md:block">
+                    
+                        <a href="#" class="flex items-center group">
+                            <img src="./assets/images/userbl.png" alt="Campus Logo" class="h-12 w-auto group-hover:hidden">
+                            <img src="./assets/images/userb.png" alt="Campus Logo Hover" class="h-12 w-auto hidden group-hover:block">
+                        </a>
+                    
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+<section class="bg-white py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="font-playfair italic text-4xl md:text-5xl mb-6 text-gray-900">À propos de<br>e-Campus Admin</h1>
+                    <p class="text-gray-600 leading-relaxed">
+                        Accédez facilement à tous vos services administratifs, vos inscriptions, vos emplois du temps et vos documents officiels.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        e-Campus Admin est une interface moderne et sécurisée dédiée aux étudiants et au personnel d'ESPRIT.
+                    </p>
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="Team collaboration" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="bg-gray-50 py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 rounded-lg overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop" alt="Mission discussion" class="w-full h-full object-cover">
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="font-playfair italic text-4xl md:text-5xl mb-6 text-gray-900">Notre mission</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Le projet e-Campus Admin s'inscrit dans une démarche de transformation numérique visant à simplifier et optimiser toutes les démarches administratives des étudiants.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Notre objectif principal est de créer un guichet unique virtuel, accessible à tout moment, permettant de réduire complètement la dépendance au contact physique avec les bureaux de l'administration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why e-Campus Admin Section -->
+    <section class="py-16 px-6" style="background-color: #2F75C0;">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-playfair italic text-4xl md:text-5xl mb-8 text-white text-center">Pourquoi e-Campus Admin ?</h2>
+            <p class="text-white text-center mb-8 max-w-3xl mx-auto">
+                Grâce à la dématérialisation de l'ensemble des processus, la plateforme garantit :
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 text-white max-w-4xl mx-auto">
+                <div class="flex items-start space-x-3">
+                    <span class="text-xl mt-1">•</span>
+                    <p>Un accès 24/7 aux services et documents administratifs</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <span class="text-xl mt-1">•</span>
+                    <p>Une gestion simplifiée des inscriptions et demandes officielles</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <span class="text-xl mt-1">•</span>
+                    <p>Une réduction des temps d'attente et des déplacements inutiles</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <span class="text-xl mt-1">•</span>
+                    <p>Une expérience fluide, sécurisée et centralisée pour tous les utilisateurs</p>
+                </div>
+                <div class="flex items-start space-x-3 md:col-span-2">
+                    <span class="text-xl mt-1">•</span>
+                    <p>Une continuité du service, même en période de forte affluence ou à distance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Who Section -->
+    <section class="bg-white py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-playfair italic text-4xl md:text-5xl mb-12 text-gray-900 text-center">Pour qui ?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=400&fit=crop" alt="Étudiants" class="w-full h-64 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop" alt="Personnel" class="w-full h-64 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Enseignants" class="w-full h-64 object-cover">
+                </div>
+            </div>
+
+            <div class="space-y-4 max-w-4xl mx-auto">
+                <p class="text-gray-700 leading-relaxed">
+                    <span class="font-semibold" style="color: #2F75C0;">Les étudiants,</span> pour gérer facilement leurs documents, demandes et informations académiques
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    <span class="font-semibold" style="color: #2F75C0;">Le personnel</span> administratif, pour automatiser et accélérer le traitement des dossiers
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    <span class="font-semibold" style="color: #2F75C0;">Les enseignants,</span> pour un accès rapide aux informations essentielles
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER SECTION - REPLACE THIS -->
+    <footer class="bg-[#2F75C0] text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Info Section -->
+                <div class="space-y-4">
+                    <div class="w-16 h-16  rounded-lg flex items-center justify-center">
+                        <img src="./assets/images/whitbg.png" alt="Campus Logo" class="h-12 w-auto">
+                    </div>
+                    <div class="text-sm opacity-90">
+                        <p>© 2025 e-Campus</p>
+                        <p>El Ghazala Technopark,</p>
+                        <p>Ariana, Tunisia</p>
+                        <p class="mt-2">+216 70 250 000 • <a href="mailto:scolarite@esprit.tn" class="hover:underline">scolarite@esprit.tn</a></p>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick links</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">Dashboard</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Documents</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Meetings</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">About</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">Brochure</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">FAQs</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Support</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">LinkedIn</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Twitter</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Instagram</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
