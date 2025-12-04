@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Campus - Simplifiez vos démarches universitaires</title>
+    <title>E-Campus</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script>
@@ -19,22 +19,44 @@
     </script>
 </head>
 <body class="font-poppins">
+    <!-- Header -->
     <header class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-blue-600 text-white rounded flex items-center justify-center font-bold">E</div>
-                <span class="text-blue-600 font-bold text-lg">E-CAMPUS</span>
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="./../index.html" class="flex items-center group">
+                    <img src="./../assets/images/logoblue2.png" alt="Campus Logo" class="h-12 w-auto group-hover:hidden">
+                    <img src="./../assets/images/logopblck.png" alt="Campus Logo Hover" class="h-12 w-auto hidden group-hover:block">
+                </a>
+                    <!-- Navigation -->
+                    <nav class="hidden md:flex items-center gap-2">
+                    <a href="./../index.html" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">Dashboard</a>
+                    <a href="./besoin1/Home.html" class="px-6 py-2 bg-[#2F75C0] text-white rounded-md hover:bg-[#2663A6] transition">Documents</a>
+                    <a href="#" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">Meetings</a>
+                    <a href="./../about.html" class="px-6 py-2 text-gray-900 hover:bg-[#2F75C0] hover:text-white rounded-md transition">About</a>
+                    </nav>
+
+                <!-- User Icon -->
+                <div class="hidden md:block">
+                    
+                        <a href="#" class="flex items-center group">
+                            <img src="./../assets/images/userbl.png" alt="Campus Logo" class="h-12 w-auto group-hover:hidden">
+                            <img src="./../assets/images/userb.png" alt="Campus Logo Hover" class="h-12 w-auto hidden group-hover:block">
+                        </a>
+                    
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
-            <nav class="hidden md:flex gap-8">
-                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Dashboard</a>
-                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Documents</a>
-                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">Réunions</a>
-                <a href="#" class="text-gray-800 hover:text-blue-600 text-sm font-medium transition">À propos</a>
-            </nav>
-            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center cursor-pointer text-lg">👤</div>
         </div>
     </header>
 
+   <!-- Hero Section -->
     <section class="relative h-96 md:h-[450px] bg-cover bg-center flex items-center justify-center" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1200');">
         <div class="text-center text-white px-4">
             <h1 class="text-4xl md:text-5xl font-bold italic leading-tight mb-2">Simplifiez vos démarches<br>universitaires</h1>
@@ -42,29 +64,36 @@
         </div>
     </section>
 
-    <section class="bg-white -mt-20 relative z-10 px-4 pb-12">
+    <!-- Cards Section -->
+    <section class="relative -mt-32 z-10 px-4 pb-12">
         <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             <!-- Card 1 -->
             <div class="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition">
-                <div class="w-20 h-20 mx-auto mb-4 bg-blue-50 rounded-lg flex items-center justify-center text-5xl">📄</div>
+                <div class="w-20 h-20 mx-auto mb-4 bg-blue-50 rounded-lg flex items-center justify-center text-5xl">
+                    <img src="./../assets/images/DC.png" alt="Document Icon" >
+                </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">Demander un Document</h3>
                 <p class="text-gray-600 text-sm mb-6">Obtenez vos attestations et relevés en quelques clics.</p>
-                    <a href="./documents/formulaire.html">
-                        <button class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition">Demander un Document</button>
-                    </a>
-                    </div>
+                <a href="./section_documents/formulaire.html">
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition">Demander un Document</button>
+                </a>
+            </div>
 
+            <!-- Card 2 -->
             <div class="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition">
-                <div class="w-20 h-20 mx-auto mb-4 bg-blue-50 rounded-lg flex items-center justify-center text-5xl">👥</div>
+                <div class="w-20 h-20 mx-auto mb-4 bg-blue-50 rounded-lg flex items-center justify-center text-5xl">
+                    <img src="./../assets/images/NOTTITLD1.png" alt="Document Icon" >
+                </div>
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">Planifier une réunion</h3>
                 <p class="text-gray-600 text-sm mb-6">Obtenez vos attestations et relevés en quelques clics.</p>
-		<a href="./rendez-vous-calendar.html">
- 		    <button class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition">Rendez-vous</button>
-		</a>
-	    </div>
+                <a href="./Bureau-rv.html">
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition">Rendez-vous</button>
+                </a>
+            </div>
         </div>
     </section>
 
+    <!-- How It Works -->
     <section class="bg-blue-50 py-16 px-4">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12 tracking-wide">COMMENT ÇA MARCHE ?</h2>
@@ -94,50 +123,56 @@
         </div>
     </section>
 
-    <footer class="bg-blue-600 text-white py-12 px-4">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="w-10 h-10 bg-blue-400 rounded flex items-center justify-center font-bold">E</div>
-                    <span class="font-bold text-lg">E-CAMPUS</span>
+<!-- FOOTER SECTION - REPLACE THIS -->
+    <footer class="bg-[#2F75C0] text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Info Section -->
+                <div class="space-y-4">
+                    <div class="w-16 h-16  rounded-lg flex items-center justify-center">
+                        <img src="./../assets/images/whitbg.png" alt="Campus Logo" class="h-12 w-auto">
+                    </div>
+                    <div class="text-sm opacity-90">
+                        <p>© 2025 e-Campus</p>
+                        <p>El Ghazala Technopark,</p>
+                        <p>Ariana, Tunisia</p>
+                        <p class="mt-2">+216 70 250 000 • <a href="mailto:scolarite@esprit.tn" class="hover:underline">scolarite@esprit.tn</a></p>
+                    </div>
                 </div>
-                <p class="text-blue-100 text-sm">
-                    © 2024 E-Campus<br>
-                    Université Virtuelle<br>
-                </p>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4">
+                <!-- Quick Links Section -->
                 <div>
-                    <h5 class="font-bold text-sm mb-3">Quick Links</h5>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Dashboard</a></li>
-                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Documents</a></li>
-                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Support</a></li>
+                    <h3 class="text-lg font-semibold mb-4">Quick links</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">Dashboard</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Documents</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Meetings</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">About</a></li>
                     </ul>
                 </div>
+
+                <!-- Resources Section -->
                 <div>
-                    <h5 class="font-bold text-sm mb-3">Resources</h5>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">FAQ</a></li>
-                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Aide</a></li>
-                        <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Contact</a></li>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">Brochure</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">FAQs</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Support</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li><a href="#" class="hover:underline hover:opacity-100">LinkedIn</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Twitter</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Instagram</a></li>
+                        <li><a href="#" class="hover:underline hover:opacity-100">Facebook</a></li>
                     </ul>
                 </div>
             </div>
-
-            <div>
-                <h5 class="font-bold text-sm mb-3">Contact</h5>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Email</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Téléphone</a></li>
-                    <li><a href="#" class="text-blue-100 hover:text-white text-sm transition">Support 24/7</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="border-t border-blue-400 pt-8 text-center text-blue-100 text-sm">
-            Tous les droits réservés | Politique de confidentialité | Conditions d'utilisation
         </div>
     </footer>
 </body>
